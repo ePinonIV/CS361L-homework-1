@@ -1,4 +1,9 @@
 # Code to plot Methods 1 and 2 & other time functions for Question 4 of Homework-1
+# Usage:
+# python3 <function> <n>
+# - function = `methods` or `extras`
+# - n = number of x values to plot
+# - Note that this was run in a WSL environment so plt.show() might not work in other environments, but plt.savefig() should
 
 import sys
 import math
@@ -69,12 +74,11 @@ def extras(n):
     plt.show()
 
 
-# main fn to run code
+# main fn to take cmd line args
 def main():
     print("-------------------------")
-
     if sys.argv[1] == 'methods':
-        print("Running method 1...")
+        print("Running methods...")
         methods(int(sys.argv[2]))
     elif sys.argv[1] == 'extras':
         print("Running extras...")
@@ -82,7 +86,6 @@ def main():
     else:
         print("unknown argument, no functions ran...")
         exit(0)
-
     print("Fig closed, ending program")
     print("-------------------------")
 
