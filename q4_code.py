@@ -24,7 +24,8 @@ def methods(n):
     plt.plot()
     plt.xlabel("Integer Input $n{}$")
     plt.ylabel("Time Complexity $f(n){}$")
-    plt.title("Sorting Method 1 vs Method 2 Time Complexity")
+    ntitle = "Sorting Method 1 vs Method 2 Time Complexity, $n$=" + str(n)
+    plt.title(ntitle)
     plt.grid(True)
     plt.plot(x_vals, y_m1, marker='*', linestyle='solid', color='red')
     plt.plot(x_vals, y_m2, marker='o', linestyle='solid', color='blue')
@@ -34,7 +35,6 @@ def methods(n):
     filename = "methods_" + str(n) + ".png"
     plt.savefig(filename)
     plt.show()
-
 
 
 # Extra function plots
@@ -54,7 +54,8 @@ def extras(n):
     plt.figure(figsize=(10,5),num='Other Function Plots')
     plt.xlabel("Integer Input $n{}$")
     plt.ylabel("Time Complexity $f(n){}$")
-    plt.title("Factorial vs Power Function Plot")
+    ntitle = "Factorial vs Power Function Plot, $n$=" + str(n)
+    plt.title(ntitle)
     plt.yscale('log')
     plt.grid(True)
     plt.plot(x_vals, y_fact, marker='*', linestyle='solid', color='red')
