@@ -1,4 +1,4 @@
-# Code to plot Methods 1 and 2 for Question 4 of Homework-1
+# Code to plot Methods 1 and 2 & other time functions for Question 4 of Homework-1
 
 import sys
 import math
@@ -7,6 +7,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 def methods(n):
+    # make lists for values
     x_vals = list(range(n))
     y_m1 = list(range(n))
     y_m2 = list (range(n))
@@ -18,28 +19,20 @@ def methods(n):
         y_m2[i] = i
     print("Methods done running")
 
-    # plot
+    # set up plot w/matplotlib functions
     plt.figure(figsize=(10,5),num='Sorting Methods 1 and 2 Plots')
-
-    #plt.subplot(1,2,1)
     plt.plot()
-    plt.xlabel("Integer Input (n)")
-    plt.ylabel("Parabolic Value (n^2)")
-    plt.title("Method 1")
-    #plt.yscale('log')
+    plt.xlabel("Integer Input $n{}$")
+    plt.ylabel("Time Complexity $f(n){}$")
+    plt.title("Sorting Method 1 vs Method 2 Time Complexity")
     plt.grid(True)
-    plt.plot(x_vals, y_m1, marker='o', linestyle='solid', color='red')
+    plt.plot(x_vals, y_m1, marker='*', linestyle='solid', color='red')
     plt.plot(x_vals, y_m2, marker='o', linestyle='solid', color='blue')
-    #plt.plot(x_vals, y_m2, marker='o', linestyle='solid', color='blue')
+    plt.legend(['Method 1 - $n^2$', 'Method 2 - $n$'])
 
-    #plt.subplot(1,2,2)
-    #plt.xlabel("Integer Input (n)")
-    #plt.ylabel("Linear Value (n)")
-    #plt.title("Method 2")
-    #plt.yscale('log')
-    #plt.grid(True)
-    #plt.plot(x_vals, y_m2, marker='o', linestyle='solid', color='blue')
-
+    # save fig to be able to put in README
+    filename = "methods_" + str(n) + ".png"
+    plt.savefig(filename)
     plt.show()
 
 
@@ -53,32 +46,25 @@ def extras(n):
 
     # fill in values for n! and 2^n
     for i in range(n):
-        #y_fact[i] = math.factorial(i)
         if i > 1:
             y_fact[i] = y_fact[i] * y_fact[i-1]
         y_pow[i] = pow(2, i)
 
+    # plot w/ matplotlib
     plt.figure(figsize=(10,5),num='Other Function Plots')
-
-    # plot n!
-    plt.subplot(1,2,1)
-    plt.xlabel("Integer Input (n)")
-    plt.ylabel("Factorial Value (n!)")
-    plt.title("Factorial Function Plot")
+    plt.xlabel("Integer Input $n{}$")
+    plt.ylabel("Time Complexity $f(n){}$")
+    plt.title("Factorial vs Power Function Plot")
     plt.yscale('log')
     plt.grid(True)
-    plt.plot(x_vals, y_fact, marker='o', linestyle='solid', color='red')
-
-    # plot 2^n
-    plt.subplot(1,2,2)
-    plt.xlabel("Integer Input (n)")
-    plt.ylabel("Power Value (2^n)")
-    plt.title("Power Function Plot")
-    #plt.yscale('log')
-    plt.grid(True)
+    plt.plot(x_vals, y_fact, marker='*', linestyle='solid', color='red')
     plt.plot(x_vals, y_pow, marker='o', linestyle='solid', color='blue')
+    plt.legend(['n!', '$2^n$'])
 
-    print("... done running extras, showing plot now!")
+    # savefig for showing in README
+    print("... done running extras, saving & showing plot now!")
+    filename = "extras_" + str(n) + ".png"
+    plt.savefig(filename)
     plt.show()
 
 
